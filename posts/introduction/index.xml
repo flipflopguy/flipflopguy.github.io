@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Welcome to my blog on SparkBang</title>
+    <link>http://sparkbang.imfast.io/posts/introduction/</link>
+    <description>Recent content in Welcome to my blog on SparkBang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 20 Jun 2020 17:11:23 +0200</lastBuildDate>
+    
+	<atom:link href="http://sparkbang.imfast.io/posts/introduction/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Welcome to my blog</title>
+      <link>http://sparkbang.imfast.io/posts/introduction/introduction/</link>
+      <pubDate>Sat, 20 Jun 2020 17:11:23 +0200</pubDate>
+      
+      <guid>http://sparkbang.imfast.io/posts/introduction/introduction/</guid>
+      <description>What is going on here? Welcome. You have stumbled upon my project log. This is the central space where I will be recording the progress of both my ongoing and completed projects. Call it a project journal if you will. I&amp;rsquo;ll stick with Blog for now because calling it a &amp;ldquo;Project log&amp;rdquo; or &amp;ldquo;Plog&amp;rdquo; won&amp;rsquo;t be worth the extra explanation.
+Why have a project log at all? As has already been explained in detail by a good friend - recording a project serves as a great way to round off a project and know when it is actually done.</description>
+    </item>
+    
+  </channel>
+</rss>

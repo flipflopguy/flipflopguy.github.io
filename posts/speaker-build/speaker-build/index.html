@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Goodman speaker build</title>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+
+<link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/assets/css/style.css" />
+<link rel="stylesheet" href="/assets/css/navbar.css" />
+
+
+<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
+
+
+<link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+
+
+    
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css"
+/>
+<link rel="stylesheet" href="/assets/css/single.css" />
+
+
+    
+    
+  </head>
+
+  <body>
+    <div class="container-fluid bg-dimmed wrapper">
+      
+      
+    <nav class="navbar navbar-expand-lg top-navbar final-navbar shadow">
+    <div class="container">
+      <a class="navbar-brand" href="http://sparkbang.imfast.io/">
+        <img src="/assets/images/logo.png">SparkBang</a>
+      <button class="navbar-toggler navbar-light" type="button" >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="top-nav-items">
+        <ul class="navbar-nav ml-auto">
+        </ul>
+        </ul>
+      </div>
+    </div>
+</nav>
+
+
+
+      
+      
+<div class="container p-0 read-area">
+  
+  <div class="hero-area col-sm-12" style='background-image: url(/images/project_background.jpg);'>
+  </div>
+
+  
+  <div class="page-content">
+    <div class="author-profile ml-auto align-self-lg-center">
+      <img class="rounded-circle" src='/images/avatar.jpeg'/>
+      <h5 class="author-name">Jonathan Brown</h5>
+      <p>June 28, 2020</p>
+    </div>
+
+    <div class="title">
+      <h1>Goodman speaker build</h1>
+    </div>
+
+    <div class="post-content" id="post-content">
+      <figure>
+    <img src="/images/speaker-build/speakers_and_amp.jpg" width="650" height="500"/> 
+</figure>
+
+<p>I have a set of old very worse-for-wear speakers from when my dad was my age. They are quite old, the cabinets have peeling chipboard, and one of the front panels was falling off. 
+Their Spouse Approval Factor was rock bottom. Nevertheless they still sounded pretty good.</p>
+<p>I finally decided to open them up, remove the drivers and build new cabinets for them if they were worth saving.</p>
+<figure>
+    <img src="/images/speaker-build/woofer_back.jpg"
+         alt="Goodmans AXIOM 401" width="400"/> <figcaption>
+            <p>Goodmans AXIOM 401</p>
+        </figcaption>
+</figure>
+
+<p>They are definitely worth saving. The main drivers had been replaced with 12in Goodman Axiom 401s. These drivers are famous for producing lovely warm sound and lots of it. 
+They are highly sought after, with two sets of very similar Axiom 301s going for over R15000 on ebay.</p>
+<p>The frequency response for the Axiom 401s is given as 30Hz to 12kHz so I decided to add tweeters to fill in the top end. 
+I was able to source these Goodman compression horn tweeters which should complement the drivers nicely. Their frequency response is 2.5kHz to 35kHz. I&rsquo;m pretty sure my hearing stops somewhere south of 30kHz so they should be more than adequate.</p>
+<figure>
+    <img src="/images/speaker-build/installing_tweeter_back.jpeg"
+         alt="Compression horn tweeter" width="400"/> <figcaption>
+            <p>Compression horn tweeter</p>
+        </figcaption>
+</figure>
+
+<h2 id="tweeter-crossover-bypass-mod">Tweeter crossover bypass mod</h2>
+<p>The crossover that I salvaged from the old cabinets is designed has a selectable crossover point. Either 2.5kHz or 3.5kHz. Given the abilities of the drivers both of these are a little low but for now I set it to 3.5kHz. I may replace it in the future.
+Fun fact. This is a series crossover and is wired differently from the parallel equivalent. Most notably, the tweeter and the woofer share a terminal.</p>
+<p>The tweeter has a built in crossover which will not play nicely with the crossover unit I was planning to use. I&rsquo;m no expert, but I suspect that having the extra high pass filter on the tweeter result in a diminished frequency response for the frequencies between the crossover frequency and the high pass filter frequency on the tweeter.
+When in doubt, simulate.</p>
+<p>I did a quick and dirty simulation with LT spice using a second order Butterworth to represent the crossover box and a simple cap for the simple cap on the tweeter.</p>
+<figure>
+    <img src="/images/speaker-build/Simulation_unmodded.JPG"
+         alt="Crossover combo" width="400"/> <figcaption>
+            <p>Crossover combo</p>
+        </figcaption>
+</figure>
+
+<p>With the series crossovers there is a nasty spike in the frequency response at 3kHz followed by an even nastier null from 4kHz to 11kHz. Left uncorrected a large portion of whatever you happen to be listening to would simple disappear.</p>
+<figure>
+    <img src="/images/speaker-build/Simulation_modded.JPG"
+         alt="Modded crossover" width="400"/> <figcaption>
+            <p>Modded crossover</p>
+        </figcaption>
+</figure>
+
+<p>To avoid this I bypassed the filter on the tweeter, leaving the capacitor in place. As the simulation shows, this will vastly improve things. I had to make several assumptions and I don&rsquo;t know if the crossover accounts for the increased impedance of the tweeter but I will tweak things at a later stage if necessary.</p>
+<p>I then removed the crossover on the tweeter by simply bypassing it with a wire. Done.
+<figure>
+    <img src="/images/speaker-build/tweeter_mod_before.jpeg"
+         alt="Before tweeter mod" width="400"/> <figcaption>
+            <p>Before tweeter mod</p>
+        </figcaption>
+</figure>
+
+<figure>
+    <img src="/images/speaker-build/tweeter_mod_after.jpeg"
+         alt="After tweeter mod" width="400"/> <figcaption>
+            <p>After tweeter mod</p>
+        </figcaption>
+</figure>
+</p>
+<p>This will allow me to easily return them to stock if I decide to go a different route with the crossover. As mentioned, the crossover point is actually pretty low for this driver and tweeter combination so I may in future remove the bypass on the tweeter and add a low pass filter on the woofer.</p>
+<h2 id="cabinet">Cabinet</h2>
+<p>I was able to find recommended cabinet dimensions in an old Japanese datasheet. Many thanks to Google for translating.</p>
+<figure>
+    <img src="/images/speaker-build/design.jpeg"
+         alt="Design" width="400"/> <figcaption>
+            <p>Design</p>
+        </figcaption>
+</figure>
+
+<p>The smaller hole in the cabinet is, as far as I can tell, for Goodman&rsquo;s Acoustic Resonance Unit. The ARU is, in my understanding, a partially stuffed port without a tube. I decided to rather go with a a standard port tuned to 40Hz.
+During the build I decided to rather tune it as deep as it would go and then adjust it as necessary.</p>
+<figure>
+    <img src="/images/speaker-build/cabinet.jpeg"
+         alt="Cabinet" height="400"/> <figcaption>
+            <p>Cabinet</p>
+        </figcaption>
+</figure>
+
+<p>Tennis ball for scale. The messy white paint is just primer to prevent the inside of the cabinet from absorbing moisture.</p>
+<figure>
+    <img src="/images/speaker-build/face.jpeg"
+         alt="Face plate" height="400"/> <figcaption>
+            <p>Face plate</p>
+        </figcaption>
+</figure>
+
+<p>The face plate of the cabinet about to receive another coat of black paint. From top left clockwise: tweeter, port, and woofer.</p>
+<blockquote>
+<p>You can have it in any colour so long as it&rsquo;s black - Henry Ford</p>
+</blockquote>
+<p>The tweeters fitted in very snugly.</p>
+<figure>
+    <img src="/images/speaker-build/installing_tweeter_front.jpeg"
+         alt="Horn tweeter" width="400"/> <figcaption>
+            <p>Horn tweeter</p>
+        </figcaption>
+</figure>
+
+<p>The crossover was attached to the side of the cabinet before the batting was pressed into the back of the cabinet.</p>
+<figure>
+    <img src="/images/speaker-build/wiring_the_crossover.jpeg"
+         alt="Crossover wiring" width="400"/> <figcaption>
+            <p>Crossover wiring</p>
+        </figcaption>
+</figure>
+
+<p>The woofer was bolted to the the face plate before the face plate was screwed into the cabinet itself. Rather nerve racking working with a screwdriver so close to the cone.</p>
+<figure>
+    <img src="/images/speaker-build/careful.jpeg"
+         alt="Careful" height="400"/> <figcaption>
+            <p>Careful</p>
+        </figcaption>
+</figure>
+
+<p>I was really relieved when the drivers were safely installed in the face plate and everything was safely closed up.</p>
+<figure>
+    <img src="/images/speaker-build/before_cosmetics.jpg"
+         alt="The business end" height="400"/> <figcaption>
+            <p>The business end</p>
+        </figcaption>
+</figure>
+
+<h2 id="finishing-off">Finishing off</h2>
+<p>Once the drivers were installed and had been been given a good listen, I reluctantly unplugged them to make a few cosmetic changes. These things sound GOOD!</p>
+<p>My first priority was to protect the drivers from our cat and unwitting fingers. To this end I bought a set of cheap grills and classed them up by stretching sections cut from a pair of stockings over them. 
+This did hide the cones but would protect them and also give the face a uniform black appearance and vastly improve the Spouse Approval Factor. I also added a pair of plastic port flares and stretched some of the last bits of stocking over the back to hide the green batting. 
+I don&rsquo;t know what this will do to the sound quality but given that I plan to tune the ports further I decided to go ahead as an experiment.</p>
+<figure>
+    <img src="/images/speaker-build/after_cosmetics2.jpg"
+         alt="Good lookin&amp;rsquo; speaker" width="400"/> <figcaption>
+            <p>Good lookin&rsquo; speaker</p>
+        </figcaption>
+</figure>
+
+<p>Finally I added proper terminals to the back as well as a carry handle - these things are heavy.</p>
+<figure>
+    <img src="/images/speaker-build/cosmetic_back.jpeg"
+         alt="Handle and terminals" height="400"/> <figcaption>
+            <p>Handle and terminals</p>
+        </figcaption>
+</figure>
+
+<h2 id="listening-impressions">Listening impressions</h2>
+<p>I&rsquo;m keen to hear the opinion of some folk with more an ear but to me these sound epic. Good, punchy bass that isn&rsquo;t overpowering. Detailed but not bright. That trademark warm Goodman&rsquo;s sound with no shrillness. I listen to music while I work and often have to give my ears a break after a while. 
+I don&rsquo;t get that with these.</p>
+<p>In the immortal words of DJ Snake:</p>
+<blockquote>
+<p>Turn down for what!?</p>
+</blockquote>
+<h2 id="future-improvements-and-tweaks">Future improvements and tweaks.</h2>
+<p>In the future I plan to properly tune the port. At the moment it&rsquo;s tuned way too low, probably somewhere around 20 - 30 Hz. Adjusting that could extend the bass response a little lower. I&rsquo;ve noticed on a very few songs with very low frequencies an odd rumble.</p>
+<p>Once that&rsquo;s done I&rsquo;ll probably custom design a crossover for the driver and tweeter as well as a transform to better balance the volume of the woofer and tweeter. At the moment I can&rsquo;t hear much, if anything, from the tweeter.</p>
+
+    </div>
+
+    
+    
+
+    
+  <hr />
+  <div class="row next-prev-navigator">
+    
+    
+      
+    
+      
+        
+        <div class="col-md-6 previous-article">
+          <a href="/posts/smartmirror/speaker-build/" class="btn btn-outline-info">
+            <span><i class="fas fa-chevron-circle-left"></i> Prev</span>
+            <br />
+            <span>Smart Mirror</span>
+          </a>
+        </div>
+        
+        
+        <div class="col-md-6 next-article">
+          <a href="/posts/introduction/introduction/" class="btn btn-outline-info">
+            <span>Next <i class="fas fa-chevron-circle-right"></i></span>
+            <br />
+            <span>Welcome to my blog</span>
+          </a>
+        </div>
+        
+      
+    
+      
+    
+  </div>
+  <hr />
+  
+  
+</div>
+
+    </div>
+
+    <footer class="container-fluid text-center align-content-center footer pb-2">
+  
+  </div>
+  <hr />
+  <div class="container">
+    <div class="row text-left">
+      
+      <div class="col-md-4">© 2020 Copyright.</div>
+      <div class="col-md-4">
+        Powered by <a href="https://gohugo.io/">Hugo
+        
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <script src="/assets/js/jquery-3.4.1.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+
+<script src="/assets/js/navbar.js"></script>
+<script src="/assets/js/jquery.filterizr.min.js"></script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+<script src="/assets/js/single.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+
+
+  </body>
+</html>

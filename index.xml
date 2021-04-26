@@ -13,12 +13,13 @@
     
     <item>
       <title>Amplifier</title>
-      <link>https://flipflopguy.github.io/posts/amplifier/speaker-build/</link>
+      <link>https://flipflopguy.github.io/posts/amplifier/amplifier/</link>
       <pubDate>Mon, 29 Mar 2021 02:51:06 +0200</pubDate>
       
-      <guid>https://flipflopguy.github.io/posts/amplifier/speaker-build/</guid>
+      <guid>https://flipflopguy.github.io/posts/amplifier/amplifier/</guid>
       <description>Recently I completed a refurbish of my pair of Goodman speakers and decided that the amplifier needed a refresh to as well. The Goodman build is documented in one of my earlier posts.
-The goals of the rebuild were to improve the user interface, to use a nicer material and to use the protection circuits on the amplifier to prevent the speakers popping when the amplifier is turned off.</description>
+The goals of the rebuild were to improve the volume and power controls, and to use the protection circuits on the amplifier to prevent the speakers popping when the amplifier is turned off.
+Design The design centres around a new control input that consists of a dual potentiometer bonded to a push switch capable of switching relatively high currents at a suitable distance from the audio signals passing through the potentiometer.</description>
     </item>
     
     <item>

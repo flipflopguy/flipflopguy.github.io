@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on SparkBang</title>
-    <link>http://sparkbang.imfast.io/categories/</link>
-    <description>Recent content in Categories on SparkBang</description>
+    <title>Categories on FlipFlopGuy</title>
+    <link>https://flipflopguy.github.io/categories/</link>
+    <description>Recent content in Categories on FlipFlopGuy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 10 Jul 2020 17:11:23 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 29 Mar 2021 02:51:06 +0200</lastBuildDate>
     
-	<atom:link href="http://sparkbang.imfast.io/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://flipflopguy.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>

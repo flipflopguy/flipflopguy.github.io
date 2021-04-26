@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>speaker-build on SparkBang</title>
-    <link>http://sparkbang.imfast.io/categories/speaker-build/</link>
-    <description>Recent content in speaker-build on SparkBang</description>
+    <title>speaker-build on FlipFlopGuy</title>
+    <link>https://flipflopguy.github.io/categories/speaker-build/</link>
+    <description>Recent content in speaker-build on FlipFlopGuy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 28 Jun 2020 17:11:23 +0200</lastBuildDate>
     
-	<atom:link href="http://sparkbang.imfast.io/categories/speaker-build/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://flipflopguy.github.io/categories/speaker-build/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Goodman speaker build</title>
-      <link>http://sparkbang.imfast.io/posts/speaker-build/speaker-build/</link>
+      <link>https://flipflopguy.github.io/posts/speaker-build/speaker-build/</link>
       <pubDate>Sun, 28 Jun 2020 17:11:23 +0200</pubDate>
       
-      <guid>http://sparkbang.imfast.io/posts/speaker-build/speaker-build/</guid>
+      <guid>https://flipflopguy.github.io/posts/speaker-build/speaker-build/</guid>
       <description>I have a set of old very worse-for-wear speakers from when my dad was my age. They are quite old, the cabinets have peeling chipboard, and one of the front panels was falling off. Their Spouse Approval Factor was rock bottom. Nevertheless they still sounded pretty good.
 I finally decided to open them up, remove the drivers and build new cabinets for them if they were worth saving.</description>
     </item>

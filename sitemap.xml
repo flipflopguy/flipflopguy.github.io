@@ -3,67 +3,82 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://sparkbang.imfast.io/posts/smartmirror/</loc>
+    <loc>https://flipflopguy.github.io/posts/amplifier/</loc>
+    <lastmod>2021-03-29T02:51:06+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://flipflopguy.github.io/posts/smartmirror/</loc>
     <lastmod>2020-07-10T17:11:23+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://sparkbang.imfast.io/posts/speaker-build/</loc>
+    <loc>https://flipflopguy.github.io/posts/speaker-build/</loc>
     <lastmod>2020-06-28T17:11:23+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://sparkbang.imfast.io/posts/introduction/</loc>
+    <loc>https://flipflopguy.github.io/posts/introduction/</loc>
     <lastmod>2020-06-20T17:11:23+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://sparkbang.imfast.io/categories/</loc>
+    <loc>https://flipflopguy.github.io/posts/amplifier/speaker-build/</loc>
+    <lastmod>2021-03-29T02:51:06+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://flipflopguy.github.io/categories/amplifier/</loc>
+    <lastmod>2021-03-29T02:51:06+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://flipflopguy.github.io/categories/</loc>
+    <lastmod>2021-03-29T02:51:06+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://flipflopguy.github.io/</loc>
+    <lastmod>2021-03-29T02:51:06+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://flipflopguy.github.io/posts/</loc>
+    <lastmod>2021-03-29T02:51:06+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://flipflopguy.github.io/posts/smartmirror/smartmirror/</loc>
     <lastmod>2020-07-10T17:11:23+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://sparkbang.imfast.io/posts/</loc>
+    <loc>https://flipflopguy.github.io/categories/smartmirror/</loc>
     <lastmod>2020-07-10T17:11:23+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://sparkbang.imfast.io/posts/smartmirror/speaker-build/</loc>
-    <lastmod>2020-07-10T17:11:23+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://sparkbang.imfast.io/categories/smartmirror/</loc>
-    <lastmod>2020-07-10T17:11:23+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://sparkbang.imfast.io/</loc>
-    <lastmod>2020-07-10T17:11:23+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://sparkbang.imfast.io/posts/speaker-build/speaker-build/</loc>
+    <loc>https://flipflopguy.github.io/posts/speaker-build/speaker-build/</loc>
     <lastmod>2020-06-28T17:11:23+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://sparkbang.imfast.io/categories/speaker-build/</loc>
+    <loc>https://flipflopguy.github.io/categories/speaker-build/</loc>
     <lastmod>2020-06-28T17:11:23+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://sparkbang.imfast.io/categories/introduction/</loc>
+    <loc>https://flipflopguy.github.io/categories/introduction/</loc>
     <lastmod>2020-06-20T17:11:23+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://sparkbang.imfast.io/posts/introduction/introduction/</loc>
+    <loc>https://flipflopguy.github.io/posts/introduction/introduction/</loc>
     <lastmod>2020-06-20T17:11:23+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://sparkbang.imfast.io/tags/</loc>
+    <loc>https://flipflopguy.github.io/tags/</loc>
   </url>
   
 </urlset>

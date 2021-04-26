@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Amplifier</title>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+
+<link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/assets/css/style.css" />
+<link rel="stylesheet" href="/assets/css/navbar.css" />
+
+
+<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
+
+
+<link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+
+
+    
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css"
+/>
+<link rel="stylesheet" href="/assets/css/single.css" />
+
+
+    
+    
+  </head>
+
+  <body>
+    <div class="container-fluid bg-dimmed wrapper">
+      
+      
+    <nav class="navbar navbar-expand-lg top-navbar final-navbar shadow">
+    <div class="container">
+      <a class="navbar-brand" href="https://flipflopguy.github.io/">
+        <img src="/assets/images/logo.png">FlipFlopGuy</a>
+      <button class="navbar-toggler navbar-light" type="button" >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="top-nav-items">
+        <ul class="navbar-nav ml-auto">
+        </ul>
+        </ul>
+      </div>
+    </div>
+</nav>
+
+
+
+      
+      
+<div class="container p-0 read-area">
+  
+  <div class="hero-area col-sm-12" style='background-image: url(/images/project_background.jpg);'>
+  </div>
+
+  
+  <div class="page-content">
+    <div class="author-profile ml-auto align-self-lg-center">
+      <img class="rounded-circle" src='/images/avatar.jpeg'/>
+      <h5 class="author-name">Flip Flop Guy</h5>
+      <p>March 29, 2021</p>
+    </div>
+
+    <div class="title">
+      <h1>Amplifier</h1>
+    </div>
+
+    <div class="post-content" id="post-content">
+      <figure>
+    <img src="/images/amplifier/amplifier.jpg" width="300"/> 
+</figure>
+
+<p>Recently I completed a refurbish of my pair of Goodman speakers and decided that the amplifier needed a refresh to as well. The Goodman build is documented in one of my earlier posts.</p>
+<p>The goals of the rebuild were to improve the user interface, to use a nicer material and to use the protection circuits on the amplifier to prevent the speakers popping when the amplifier is turned off.</p>
+<h3 id="design">Design</h3>
+<p>The design centres around a new control input that consists of a dual potentiometer bonded to a push switch capable of switching relatively high currents at a suitable distance from the audio signals passing through the potentiometer. 
+This allows the user to turn on the amplifier by pressing in the volume knob and to adjust the volume using the same dial.</p>
+<h3 id="set-up">Set up</h3>
+<p>For now I use the full image of Raspbian buster. I flash that to an SD card, pop it in the raspberry pi, and boot it.</p>
+<p>Then I follow the instructions on <a href="https://pimylifeup.com/raspberry-pi-kiosk/">https://pimylifeup.com/raspberry-pi-kiosk/</a>.</p>
+<p>First. Install the packages that will be needed to run the script:</p>
+<pre><code>sudo apt-get install xdotool unclutter sed
+</code></pre>
+<p>Auto login is already set up for the pi user so we can skip that step.</p>
+<p>Now create /home/pi/kiosk.sh with the following</p>
+<pre><code>#!/bin/bash
+xset s noblank
+xset s off
+xset -dpms
+
+unclutter -idle 0.5 -root &amp;
+
+sed -i 's/&quot;exited_cleanly&quot;:false/&quot;exited_cleanly&quot;:true/' /home/pi/.config/chromium/Default/Preferences
+sed -i 's/&quot;exit_type&quot;:&quot;Crashed&quot;/&quot;exit_type&quot;:&quot;Normal&quot;/' /home/pi/.config/chromium/Default/Preferences
+
+Display=:0.0 /usr/bin/chromium-browser --noerrdialogs --disable-infobars --kiosk https://dakboard.com/app?p=5ae8e0ddc65539f7e49d24952eee0891 &amp;
+</code></pre>
+<p>Don&rsquo;t forget to mark the script as executable with:</p>
+<pre><code>chmod +x /home/pi/kiosk.sh
+</code></pre>
+<p>So I would like to run this from crontab but Chromium throws a couple of errors that stops crontab&rsquo;s execution. So I had to come up with a work around.</p>
+<blockquote>
+<p>This took far too long to figure out.</p>
+</blockquote>
+<p>I started by instead using a root cron job. That didn&rsquo;t work because Chromium cannot (and shouldn&rsquo;t need to) run as root.</p>
+<p>The solution was to use a standard user cron job that calls a shell script that will itself execute the kiosk.sh script. Ugly but it works.</p>
+<p>Finally, set the screen rotation by adding the following to /boot/config.txt</p>
+<pre><code>display_rotate=3
+</code></pre>
+<p>This will rotate the screen 90 degrees x 3 = 270 degrees. Which is what is needed for my setup.</p>
+<p>There it is.</p>
+
+    </div>
+
+    
+    
+
+    
+  <hr />
+  <div class="row next-prev-navigator">
+    
+    
+      
+    
+      
+    
+      
+    
+      
+        
+        
+        <div class="col-md-12 next-article">
+          <a href="/posts/smartmirror/smartmirror/" class="btn btn-outline-info">
+            <span>Next <i class="fas fa-chevron-circle-right"></i></span>
+            <br />
+            <span>Smart Mirror</span>
+          </a>
+        </div>
+        
+      
+    
+  </div>
+  <hr />
+  
+  
+</div>
+
+    </div>
+
+    <footer class="container-fluid text-center align-content-center footer pb-2">
+  
+  </div>
+  <hr />
+  <div class="container">
+    <div class="row text-left">
+      
+      <div class="col-md-4">© 2020 Copyright.</div>
+      <div class="col-md-4">
+        Powered by <a href="https://gohugo.io/">Hugo
+        
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <script src="/assets/js/jquery-3.4.1.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+
+<script src="/assets/js/navbar.js"></script>
+<script src="/assets/js/jquery.filterizr.min.js"></script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+<script src="/assets/js/single.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+
+
+  </body>
+</html>

@@ -77,18 +77,18 @@
     <img src="/images/speaker-build/speakers_and_amp.jpg" width="650" height="500"/> 
 </figure>
 
-<p>I have a set of old very worse-for-wear speakers from when my dad was my age. They are quite old, the cabinets have peeling chipboard, and one of the front panels was falling off. 
-Their Spouse Approval Factor was rock bottom. Nevertheless they still sounded pretty good.</p>
-<p>I finally decided to open them up, remove the drivers and build new cabinets for them if they were worth saving.</p>
+<p>I have a set of old very worse-for-wear speakers that my father built when he was in his early twenties. The last few decades have taken their toll. The cabinets have peeling chipboard, badly worn edges, and a front panel that is swinging free. 
+As such, their Spouse Approval Factor was rock bottom. Nevertheless they still sounded pretty good.</p>
+<p>I finally decided to open them up, remove the drivers, and build new cabinets for them if I found that they were worth saving.
 <figure>
     <img src="/images/speaker-build/woofer_back.jpg"
          alt="Goodmans AXIOM 401" width="400"/> <figcaption>
             <p>Goodmans AXIOM 401</p>
         </figcaption>
 </figure>
-
-<p>They are definitely worth saving. The main drivers had been replaced with 12in Goodman Axiom 401s. These drivers are famous for producing lovely warm sound and lots of it. 
-They are highly sought after, with two sets of very similar Axiom 301s going for over R15000 on ebay.</p>
+</p>
+<p>I did a little research and found that the main drivers had been replaced with 12in Goodman Axiom 401s. These drivers are famous for producing lovely, warm sound in reasonably large quantities. The cones and coils seemed to be in good condition and a slow frequency sweep didn&rsquo;t reveal any problems.</p>
+<p>Houston. The rebuild is a go.</p>
 <p>The frequency response for the Axiom 401s is given as 30Hz to 12kHz so I decided to add tweeters to fill in the top end. 
 I was able to source these Goodman compression horn tweeters which should complement the drivers nicely. Their frequency response is 2.5kHz to 35kHz. I&rsquo;m pretty sure my hearing stops somewhere south of 30kHz so they should be more than adequate.</p>
 <figure>
@@ -103,7 +103,7 @@ I was able to source these Goodman compression horn tweeters which should comple
 Fun fact. This is a series crossover and is wired differently from the parallel equivalent. Most notably, the tweeter and the woofer share a terminal.</p>
 <p>The tweeter has a built in crossover which will not play nicely with the crossover unit I was planning to use. I&rsquo;m no expert, but I suspect that having the extra high pass filter on the tweeter result in a diminished frequency response for the frequencies between the crossover frequency and the high pass filter frequency on the tweeter.
 When in doubt, simulate.</p>
-<p>I did a quick and dirty simulation with LT spice using a second order Butterworth to represent the crossover box and a simple cap for the simple cap on the tweeter.</p>
+<p>I did a quick and dirty simulation with LT spice using a second order Butterworth to represent the crossover box and a simple cap to represent the simple cap on the tweeter. Purists may howl but I&rsquo;m guessing this should at least get me in the ballpark.</p>
 <figure>
     <img src="/images/speaker-build/Simulation_unmodded.JPG"
          alt="Crossover combo" width="400"/> <figcaption>
@@ -111,7 +111,7 @@ When in doubt, simulate.</p>
         </figcaption>
 </figure>
 
-<p>With the series crossovers there is a nasty spike in the frequency response at 3kHz followed by an even nastier null from 4kHz to 11kHz. Left uncorrected a large portion of whatever you happen to be listening to would simple disappear.</p>
+<p>With the series crossovers there is a nasty spike in the frequency response at 3kHz followed by an even nastier null from 4kHz to 11kHz. Left uncorrected a large portion of whatever you happen to be listening to would simply disappear.</p>
 <figure>
     <img src="/images/speaker-build/Simulation_modded.JPG"
          alt="Modded crossover" width="400"/> <figcaption>
@@ -119,7 +119,7 @@ When in doubt, simulate.</p>
         </figcaption>
 </figure>
 
-<p>To avoid this I bypassed the filter on the tweeter, leaving the capacitor in place. As the simulation shows, this will vastly improve things. I had to make several assumptions and I don&rsquo;t know if the crossover accounts for the increased impedance of the tweeter but I will tweak things at a later stage if necessary.</p>
+<p>To avoid this I bypassed the filter on the tweeter, leaving the capacitor in place. As the simulation shows, this will vastly improve things. I had to make several assumptions since I don&rsquo;t know if the crossover accounts for the increased impedance of the tweeter but I will tweak things at a later stage if necessary.</p>
 <p>I then removed the crossover on the tweeter by simply bypassing it with a wire. Done.
 <figure>
     <img src="/images/speaker-build/tweeter_mod_before.jpeg"
@@ -182,7 +182,7 @@ During the build I decided to rather tune it as deep as it would go and then adj
         </figcaption>
 </figure>
 
-<p>The woofer was bolted to the the face plate before the face plate was screwed into the cabinet itself. Rather nerve racking working with a screwdriver so close to the cone.</p>
+<p>The woofer was bolted to the the face plate before the face plate was screwed into the cabinet itself. Rather nerve racking working with a screwdriver so close to the cone. Definitely a design decision to reconsider the next time I do this.</p>
 <figure>
     <img src="/images/speaker-build/careful.jpeg"
          alt="Careful" height="400"/> <figcaption>
@@ -219,15 +219,16 @@ I don&rsquo;t know what this will do to the sound quality but given that I plan 
 </figure>
 
 <h2 id="listening-impressions">Listening impressions</h2>
-<p>I&rsquo;m keen to hear the opinion of some folk with more an ear but to me these sound epic. Good, punchy bass that isn&rsquo;t overpowering. Detailed but not bright. That trademark warm Goodman&rsquo;s sound with no shrillness. I listen to music while I work and often have to give my ears a break after a while. 
-I don&rsquo;t get that with these.</p>
-<p>In the immortal words of DJ Snake:</p>
+<p>I&rsquo;m keen to hear the opinion of some folk with more of an ear, but to me these sound great. I think I now know what people mean when they talk about that trademark warm Goodman sound. I listen to music while I work and often have to give my ears a break after a while - I don&rsquo;t get that with these.</p>
+<p>In the immortal words of a buddy quoting the immortal words of DJ Snake</p>
 <blockquote>
 <p>Turn down for what!?</p>
 </blockquote>
 <h2 id="future-improvements-and-tweaks">Future improvements and tweaks.</h2>
-<p>In the future I plan to properly tune the port. At the moment it&rsquo;s tuned way too low, probably somewhere around 20 - 30 Hz. Adjusting that could extend the bass response a little lower. I&rsquo;ve noticed on a very few songs with very low frequencies an odd rumble.</p>
+<p>In the future I plan to properly tune the port. At the moment it&rsquo;s tuned way too low, probably somewhere around 20 - 30 Hz. Adjusting that could extend the bass response a little lower. I&rsquo;ve noticed an odd rumble on a few tracks with low frequencies.</p>
 <p>Once that&rsquo;s done I&rsquo;ll probably custom design a crossover for the driver and tweeter as well as a transform to better balance the volume of the woofer and tweeter. At the moment I can&rsquo;t hear much, if anything, from the tweeter.</p>
+<h2 id="update">Update</h2>
+<p>I invited a buddy with better ears over for a listen and he noticed that the top end is dropping off. He suggested that I replace the crossovers which don&rsquo;t seem to be powering the tweeters much at all.</p>
 
     </div>
 

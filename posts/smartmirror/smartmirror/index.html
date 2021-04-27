@@ -77,10 +77,10 @@
     <img src="/images/smartmirror/mirror.jpg" width="300"/> 
 </figure>
 
-<p>A while ago I built a smart mirror to help keep track of the time and appointments throughout the day. It currently sits on my desk but will eventually be moved to the bathroom.</p>
-<p>It recently stopped working so I decided to use this opportunity to document it properly and record the workarounds to all the &ldquo;little nigglies&rdquo; that came up in the course of the project.</p>
+<p>Several years ago I built a smart mirror to help keep track of the time, weather, and my TODO list for the day. It currently sits on my desk but may eventually be integrated into a mirror in either the bedroom or bathroom.</p>
+<p>It recently stopped working so I decided to use this opportunity to fix it, document it properly, and record the workarounds to all the &ldquo;little nigglies&rdquo; that came up in the course of the project.</p>
 <h3 id="basic-design">Basic design</h3>
-<p>The mirror is simply an LCD screen behind a pane of one way glass. The screen is connected to a raspberry pi that is set up to display a webpage from dakboard. This webpage has a black background which allows the mirror to function as intended and displays the time, weather, and a basic calendar.</p>
+<p>The mirror is simply an LCD screen behind a pane of one way glass. The screen is connected to a raspberry pi that is set up to display a webpage from Dakboard. This webpage has a black background which allows the mirror to function as intended and displays the time, weather, and a basic TODO list.</p>
 <h3 id="set-up">Set up</h3>
 <p>For now I use the full image of Raspbian buster. I flash that to an SD card, pop it in the raspberry pi, and boot it.</p>
 <p>Then I follow the instructions on <a href="https://pimylifeup.com/raspberry-pi-kiosk/">https://pimylifeup.com/raspberry-pi-kiosk/</a>.</p>
@@ -105,16 +105,17 @@ Display=:0.0 /usr/bin/chromium-browser --noerrdialogs --disable-infobars --kiosk
 <pre><code>chmod +x /home/pi/kiosk.sh
 </code></pre>
 <p>So I would like to run this from crontab but Chromium throws a couple of errors that stops crontab&rsquo;s execution. So I had to come up with a work around.</p>
+<p>The first attempt involved using a root cron job to allow me to ignore the errors. That didn&rsquo;t work because Chromium cannot (and shouldn&rsquo;t need to) run as root.</p>
+<p>The solution was to use a standard user cron job that calls a shell script that will itself execute the kiosk.sh script. Any errors that Chromium throws are then handled by the script and not the cron job. Ugly but it works.</p>
 <blockquote>
-<p>This took far too long to figure out.</p>
+<p>This took way too long to figure out.</p>
 </blockquote>
-<p>I started by instead using a root cron job. That didn&rsquo;t work because Chromium cannot (and shouldn&rsquo;t need to) run as root.</p>
-<p>The solution was to use a standard user cron job that calls a shell script that will itself execute the kiosk.sh script. Ugly but it works.</p>
-<p>Finally, set the screen rotation by adding the following to /boot/config.txt</p>
+<p>Finally, I set the screen rotation by adding the following to /boot/config.txt</p>
 <pre><code>display_rotate=3
 </code></pre>
-<p>This will rotate the screen 90 degrees x 3 = 270 degrees. Which is what is needed for my setup.</p>
-<p>There it is.</p>
+<p>This will rotate the screen 90 degrees x 3 = 270 degrees. This is needed to ensure that the image is displayed right way up on my screen.</p>
+<p>There was an odd issue where the screen would blank for a second and then return. After doing some digging, I found that the fix was to set a different, lower resolution that required less from both the raspberry-pi and the HDMI adaptor.</p>
+<p>With all those changes the stability of the system improved drastically and it has a permanent place on my desk.</p>
 
     </div>
 
